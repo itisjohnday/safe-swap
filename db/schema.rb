@@ -22,20 +22,18 @@ ActiveRecord::Schema.define(version: 20171124150105) do
     t.string "condition"
     t.integer "price"
     t.boolean "sold?"
-    t.bigint "seller_id"
-    t.bigint "buyer_id"
+    t.integer "seller_id"
+    t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buyer_id"], name: "index_devices_on_buyer_id"
-    t.index ["seller_id"], name: "index_devices_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
     t.string "email", default: "", null: false
-    t.string "zipcode", null: false
-    t.string "phone_number", null: false
+    t.string "zipcode", default: "", null: false
+    t.string "phone_number", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

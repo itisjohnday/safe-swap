@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'works' do
+    user = User.create(first_name: "John", last_name: "Day")
+  end
 end

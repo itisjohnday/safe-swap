@@ -9,7 +9,14 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <%= yield %>
+    <div style="position:fixed top:0">
+      <%= render 'layouts/header' %>
+    </div>
+    <div>
+      <%= yield %>
+    </div>
+    <div style="position:fixed bottom:0">
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>

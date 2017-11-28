@@ -1,0 +1,21 @@
+<table class="table table-striped table-hover table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>Manufacturer</th>
+      <th>Model</th>
+      <th>Condition</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @devices.each do |device| %>
+      <% if device.sold? == false %>
+        <tr>
+          <td><%= device.manufacturer %></td>
+          <td><%= device.model %></td>
+          <td><%= device.condition %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table> 

@@ -7,9 +7,8 @@ class CreateDevices < ActiveRecord::Migration[5.1]
       t.string :condition
       t.integer :price
       t.boolean :sold?
-
-      t.belongs_to :seller
-      t.belongs_to :buyer
+      t.integer :seller_id
+      t.integer :buyer_id
 
       t.timestamps
     end
