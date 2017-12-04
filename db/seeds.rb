@@ -8,7 +8,7 @@
 
 phones = [['Apple', ['iPhone 6', 'iPhone 6+', 'iPhone 7', 'iPhone 7+', 'iPhone 8', 'iPhone 8+', 'iPhone X', ]], ['Samsung', ['Galaxy Note 8', 'Galaxy S8', 'Galaxy S8+']], ['Google', ['Pixel', 'Pixel XL', 'Pixel 2', 'Pixel 2 XL']]]
 
-zipcodes = ['29909']
+zipcodes = ['60622', '60614', '60640', '60616']
 
 condition = ['like new', 'good', 'poor', 'for parts only']
 
@@ -29,5 +29,5 @@ end
     device_model = phones[2][1][rand(0..3)]
   end
 
-  Device.create!(title: "#{Faker::Hipster.paragraph}", manufacturer: device_manufacturer, model: device_model, condition: condition[rand(0..3)], price: rand(100..500), buyer_id: rand(1..50), seller_id: rand(1..50), sold?: [true, false].sample)
+  Device.create!(title: "#{Faker::Hipster.paragraph}", manufacturer: device_manufacturer, model: device_model, condition: condition[rand(0..3)], price: rand(100..500), buyer_id: rand(1..50), seller_id: rand(1..50), sold?: false)
 end

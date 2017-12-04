@@ -5,3 +5,4 @@ RSpec.describe Device, type: :model do
     device = Device.create(model: "iPhone 7")
   end
 end
+

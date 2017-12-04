@@ -7,10 +7,10 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Sell Your Device<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href=<%= new_device_path %>>Sell Your Device<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Phones</a>
+        <a class="nav-link" href="/devices">Phones</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Laptops</a>
@@ -20,17 +20,19 @@
       </li>
       <% if current_user %>
         <li class="nav-item"> <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => "nav-link"%> </li>
-        <li class="nav-item"> <%= link_to 'Account', edit_user_registration_path, :class => "nav-link"%> </li>
+        <li class="nav-item"> <a href="/pages/user_account" class="nav-link">Account</a></li>
       <% else %>
         <li class="nav-item"> <%= link_to 'Register', new_user_registration_path, :class => "nav-link"%> </li>
         <li class="nav-item"> <%= link_to 'Login',  new_user_session_path, :class => "nav-link"%> </li>
       <% end %> 
     </ul>
+    <div class="navbar-nav mr-auto">
+      <%= form_tag devices_path, :method => "get" do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Devices", class: "form-control mr-sm-2" %>
+        <%= submit_tag "Search", :name => nil,  class: "btn btn-secondary my-2 my-sm-0"%>
+      <% end %>
+    </div>
   </div>
-  <div id="navbarColor01"
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search for a Device">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
+    
+
 </nav>

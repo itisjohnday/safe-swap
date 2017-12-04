@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h1 class="display-3"><%=@device.manufacturer%>   |  <%=@device.model%></h1>
+  <p class="lead"> <%="Price: $#{@device.price}"%></p>
+  <p class="lead"> <%="Description: #{@device.title}"%></p>
+  <hr class="my-4">
+
+  <% if @device.seller == current_user %>
+    <h3> <%=link_to 'Edit', edit_device_path(@device), class: "btn btn-primary btn-lg" %>  |  <%= link_to 'Destroy', @device, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-lg" %> </h3>
+  <% end %>
+
+  <%= render 'googlemap' %>
+
+  <h3> <%=link_to 'Q & A for Device', device_posts_path(@device), class: "btn btn-primary btn-lg" %> </h3>
+</div>

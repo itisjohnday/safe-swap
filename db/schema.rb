@@ -10,27 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171124150105) do
+ActiveRecord::Schema.define(version: 20171129213112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "devices", force: :cascade do |t|
     t.string "title"
-    t.string "model"
-    t.string "manufacturer"
-    t.string "condition"
-    t.integer "price"
-    t.boolean "sold?"
+    t.string "model", null: false
+    t.string "manufacturer", null: false
+    t.string "condition", null: false
+    t.integer "price", null: false
+    t.boolean "sold?", default: false
     t.integer "seller_id"
     t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "content", null: false
+    t.bigint "user_id"
+    t.bigint "device_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["device_id"], name: "index_posts_on_device_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
+    t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "zipcode", default: "", null: false
     t.string "phone_number", default: "", null: false

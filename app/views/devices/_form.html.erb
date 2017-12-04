@@ -1,0 +1,58 @@
+<div>
+  <%= form_for(@device, html: { class: 'form-horizontal' }) do |f| %>
+    <% if @device.errors.any? %>
+    <fieldset>
+        <div id="error_explanation">
+          <h2><%= pluralize(location.errors.count, "error") %> prohibited this device from being saved:</h2>
+
+          <ul>
+          <% @device.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class='form-group'>
+        <%= f.label :model, class: 'col-lg-2' %>
+        <div class='col-lg-10'>
+        <%= f.text_field :model, class: 'form-control', required: true %>
+        </div>
+      </div>
+
+      <div class='form-group'>
+        <%= f.label :manufacturer, class: 'col-lg-2' %>
+        <div class='col-lg-10'>
+        <%= f.text_field :manufacturer, class: 'form-control', required: true %>
+        </div>
+      </div>
+
+      <div class='form-group'>
+        <%= f.label :title, class: 'col-lg-2' %>
+        <div class='col-lg-10'>
+        <%= f.text_field :title, class: 'form-control', required: true %>
+        </div>
+      </div>
+
+      <div class='form-group'>
+        <%= f.label :condition, class: 'col-lg-2' %>
+        <div class='col-lg-10'>
+        <%= f.text_field :condition, class: 'form-control', required: true %>
+        </div>
+      </div>
+
+      <div class='form-group'>
+        <%= f.label :price, class: 'col-lg-2' %>
+        <div class='col-lg-10'>
+        <%= f.text_field :price, class: 'form-control', required: true %>
+        </div>
+      </div>
+
+      <div>
+        <%= f.submit class: "btn btn-primary btn-lg"%>
+      </div>
+      <br/>
+    <fieldset>
+  <% end %>
+  <%= link_to 'Back', devices_path, class: "btn btn-primary btn-lg"%>
+</div>

@@ -1,0 +1,21 @@
+
+<table class="table table-striped table-hover table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>Poster</th>
+      <th>Question</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.user.username %></td>
+          <td><%= post.content %></td>
+        </tr>
+    <% end %>
+    
+  </tbody>
+</table> 
+<h3> <%=link_to 'Add New Post', new_device_post_path, class: "btn btn-primary btn-lg" %> </h3>
+<h3> <%=link_to 'Return to Device', device_path(@device.id), class: "btn btn-primary btn-lg" %> </h3>

@@ -9,8 +9,24 @@
   </thead>
   
   <tbody>
-    <% @devices.each do |device| %>
+    <% @devices_bought.each do |device| %>
       <% if device.sold? == false %>
+        <tr>You bought the following devices:</tr>
+        
+        <tr>
+          <td><%= link_to device.manufacturer, device %></td>
+          <td><%= link_to device.model, device %></td>
+          <td><%= device.condition %></td>
+          <td><%= "$#{device.price}" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+
+  <tbody>
+    <% @devices_sold.each do |device| %>
+      <% if device.sold? == false %>
+        <tr>You sold the following devices:</tr>
         <tr>
           <td><%= link_to device.manufacturer, device %></td>
           <td><%= link_to device.model, device %></td>
